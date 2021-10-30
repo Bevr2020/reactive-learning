@@ -7,6 +7,18 @@ class Dog{
 
     private int food=10;
 
+    public Dog() {
+    }
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    public Dog(String name, int food) {
+        this.name = name;
+        this.food = food;
+    }
+
     public static void bark(Dog dog){
         System.out.println(dog + "叫了");
     }
@@ -52,6 +64,15 @@ public class MethodReferenceDemo {
         System.out.println(function.apply(dog,4));
 
         //构造函数的方法引用
+        Supplier<Dog> supplier = Dog::new;
+        System.out.println(supplier.get());
 
+        //带参数的构造函数的方法引用
+        Function<String,Dog> function1 = Dog::new;
+        System.out.println(function1.apply("wangcai"));
+
+        //带2个参数的构造函数的方法引用
+        BiFunction<String,Integer,Dog> biFunction = Dog::new;
+        System.out.println(biFunction.apply("caiwang", 100));
     }
 }
