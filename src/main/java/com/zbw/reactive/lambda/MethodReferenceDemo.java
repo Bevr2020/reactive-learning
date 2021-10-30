@@ -2,6 +2,9 @@ package com.zbw.reactive.lambda;
 
 import java.util.function.*;
 
+/**
+ * lambda表达式的方法引用
+ */
 class Dog{
     private String name = "啸天犬";
 
@@ -58,6 +61,7 @@ public class MethodReferenceDemo {
         //非静态方法 使用实例对象的方法
 //        Function<Integer,Integer> function = dog::eat;
 //        UnaryOperator<Integer> function = dog::eat;
+        dog = null;//不影响后面输出，因为dog::eat是针对dog对象而言的
 //        IntUnaryOperator function = dog::eat;
         //非静态方法 使用类名来引用实例方法
         BiFunction<Dog,Integer,Integer> function = Dog::eat;
